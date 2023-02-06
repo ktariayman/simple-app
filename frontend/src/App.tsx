@@ -1,5 +1,7 @@
 import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
+import { Outlet } from "react-router-dom";
 import { users } from "./data";
+import Home from "./pages/Home";
 import { Person } from "./types/Person";
 
 function App() {
@@ -22,20 +24,7 @@ function App() {
       </header>
       <main>
         <Container className="mt-3">
-          <Row>
-            {users.map((person) => (
-              <Col key={person.id} sm={6} md={4} lg={3}>
-                <img
-                  src={person.image}
-                  alt={person.image}
-                  className="person-img"
-                />
-                <h4>{person.email} </h4>
-                <p>{person.firstName} </p>
-                <p>{person.lastName} </p>
-              </Col>
-            ))}
-          </Row>
+          <Outlet />
         </Container>
       </main>
       <footer>
